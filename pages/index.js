@@ -2,9 +2,6 @@ import { useState } from "react";
 import duration from 'dayjs/plugin/duration';
 import dayjs from "dayjs";
 
-dayjs.extend(duration);
-
-
 export default function Home({ starships }) {
   const [distance, setDistance] = useState(1000000);
 
@@ -61,6 +58,7 @@ export default function Home({ starships }) {
 }
 
 export async function getStaticProps() {
+  dayjs.extend(duration);
   const pages = Array(4).fill().map((_, i) => fetch(`https://swapi.dev/api/starships/?page=${i + 1}`));
   const pageFetchList = await Promise.all(pages);
   const results = (await Promise.all(pageFetchList.map(x => x.json())))
