@@ -13,6 +13,7 @@
     "serve": "serve out"
   },
   "dependencies": {
+    "@material-ui/core": "^4.10.1",
     "dayjs": "^1.8.28",
     "next": "9.4.4",
     "react": "16.13.1",
